@@ -5,6 +5,8 @@ const db = require('./db/connection');
 const Mine = require('./db/facilities/mines');
 const Altar = require('./db/facilities/altars');
 const Dojo = require('./db/facilities/dojos');
+const Event = require('./db/facilities/events');
+const Dragontree = require('./db/facilities/dragontree');
 
 const app = express();
 
@@ -36,6 +38,20 @@ app.get('/dojos', (req, res) => {
         .exec()
         .then((dojos) => { console.log(dojos); })
         .catch((err) => { console.log(`There was an error retrieving the dojos: ${err}`); });
+});
+
+app.get('/events', (req, res) => {
+    Event.getAllEvents()
+        .exec()
+        .then((events) => { console.log(events); })
+        .catch((err) => {console.log(`There was an error retrieving the events: ${err}`); });
+});
+
+app.get('/dragontrees', (req, res) => {
+    Dragontree.getAllDragontrees()
+        .exec()
+        .then((dragontrees) => { console.log(dragontrees); })
+        .catch((err) => {console.log(`There was an error retrieving the dragontrees: ${err}`); });
 });
 
 app.listen(port, () => {
