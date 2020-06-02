@@ -14,14 +14,13 @@ const mineSchema = new mongoose.Schema({
     }
 });
 
-var Mine = mongoose.model('Mine', minesSchema);
+var Mine = mongoose.model('Mine', mineSchema);
 
 function getAllMines() {
     return Mine.find((err, mines) => {
         if (err) return console.error(err);
     });
 }
-
 
 module.exports = {
     getAllMines,

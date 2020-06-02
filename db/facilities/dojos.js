@@ -13,7 +13,7 @@ const dojoSchema = new mongoose.Schema({
         silverInsignia: Number,
         goldInsignia: Number
     }
-});
+}, {collection: 'dojo'} );
 
 var Dojo = mongoose.model('Dojo', dojoSchema);
 
@@ -22,7 +22,6 @@ function getAllDojos() {
         if (err) return console.error(err);
     });
 }
-
 
 module.exports = {
     getAllDojos,

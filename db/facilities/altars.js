@@ -23,7 +23,6 @@ function getAllAltars() {
     });
 }
 
-
 module.exports = {
     getAllAltars,
 };
